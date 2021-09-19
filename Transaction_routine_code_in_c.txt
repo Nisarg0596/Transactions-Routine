@@ -1,0 +1,143 @@
+#include <stdio.h>
+#include <string.h>  
+#include <time.h>
+#include<math.h>
+int main()
+{  
+    struct accounts{
+        int ac_no;
+        char do_no[25];
+    };
+    struct operation_types{
+        int type_id;
+        char descrpt[50];
+    };
+    struct transactions{
+      int txn_id;  
+      int ac_no;
+      int type_id;
+      float amount;
+      char datetime[50];
+    };
+    int i,j,temp,count;
+    int k=0;
+    float amt;
+    time_t t = time(NULL);
+    printf("\nHow many accounts you have to create?\t");
+    scanf("%d",&j);
+    struct accounts ac[j];
+    for (i=0;i<j;i++)
+    {
+     printf("\nEnter Document number:");
+     scanf("%s",ac[i].do_no);
+     ac[i].ac_no = k + 1 ;
+     k++;
+    }
+    printf("\nAccount Information List:");   
+    printf("\n------------------------------------------------");
+    printf("\n|Account_ID     | Document_no "); 
+    for(i=0;i<j;i++)
+    {    
+     printf("\n|%5d\t\t|  %s",ac[i].ac_no,ac[i].do_no);    
+    } 
+    printf("\n------------------------------------------------\n");
+    i=0,j=0,k=0;
+    printf("\nHow many operations you have to create?\t");
+    scanf("%d",&j);
+    struct operation_types opr[j];
+     for (i=0;i<j;i++)
+    {
+     printf("\nEnter operation Description:");
+     scanf(" %[^\t\n]s",opr[i].descrpt);
+     opr[i].type_id = k + 1 ;
+     k++;
+    }
+    printf("\nOperations Information List:"); 
+    printf("\n------------------------------------------------");
+    printf("\n|OperationType   | Description "); 
+    for(i=0;i<j;i++)
+    {    
+    printf("\n|%5d\t\t |  %s",opr[i].type_id,opr[i].descrpt) ;
+    } 
+    printf("\n------------------------------------------------\n");
+    printf("\nHow many Transaction you have to perform?\t");
+    scanf("%d",&count);
+    
+    i=0,j=0;k=0;
+    struct transactions txn[5];
+    while(j < count )
+    {
+    printf("\nSelect which Transaction you want to perform:\t");
+    scanf("%d",&temp);    
+    switch(temp)
+    {
+        case 1: 
+          txn[i].txn_id = k+1;
+          txn[i].ac_no = ac[0].ac_no;
+          txn[i].type_id = temp;
+          printf("\nEnter Amount for transaction:\t");
+          scanf("%f",&amt);
+          txn[i].amount = -amt;
+         struct tm *tm1 = localtime(&t);
+          strftime(txn[i].datetime, sizeof(txn[i].datetime)-1, "%d.%m.%y %H:%M:%S", tm1);
+          k++; 
+          i++;
+          j++;
+         break;
+        
+        case 2: 
+          txn[i].txn_id = k+1;
+          txn[i].ac_no = ac[0].ac_no;
+          txn[i].type_id = temp;
+          printf("\nEnter Amount for transaction:\t");
+          scanf("%f",&amt);
+          txn[i].amount = -amt;
+          struct tm *tm2 = localtime(&t);
+          strftime(txn[i].datetime, sizeof(txn[i].datetime)-1, "%d.%m.%y %H:%M:%S", tm2);
+          k++; 
+          i++;
+          j++;
+         break; 
+         
+         case 3: 
+          txn[i].txn_id = k+1;
+          txn[i].ac_no = ac[0].ac_no;
+          txn[i].type_id = temp;
+          printf("\nEnter Amount for transaction:\t");
+          scanf("%f",&amt);
+          txn[i].amount = -amt;
+          struct tm *tm3 = localtime(&t);
+          strftime(txn[i].datetime, sizeof(txn[i].datetime)-1, "%d.%m.%y %H:%M:%S", tm3);
+          k++; 
+          i++;
+          j++;
+         break;
+         
+        case 4: 
+          txn[i].txn_id = k+1;
+          txn[i].ac_no = ac[0].ac_no;
+          txn[i].type_id = temp;
+          printf("\nEnter Amount for transaction:\t");
+          scanf("%f",&amt);
+          txn[i].amount = amt;
+          struct tm *tm4 = localtime(&t);
+          strftime(txn[i].datetime, sizeof(txn[i].datetime)-1, "%d.%m.%y %H:%M:%S", tm4);
+          k++; 
+          i++;
+          j++;
+         break; 
+        default:
+        printf("Wrong choice");
+    }
+    
+    }
+    printf("\nTransaction Information List:");   
+    printf("\n--------------------------------------------------------------------");
+    printf("\n|Txn_id  | Acc_id| oper_type | Amount   | Event date ");
+    for(i=0;i<count;i++)
+    {
+     printf("\n|  %d \t | %d \t |  %d \t     |  %.2f  | %s",txn[i].txn_id,txn[i].ac_no,txn[i].type_id,txn[i].amount,txn[i].datetime);
+    }
+    printf("\n--------------------------------------------------------------------");
+    return 0;
+}

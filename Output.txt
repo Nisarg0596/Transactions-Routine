@@ -1,0 +1,55 @@
+How many accounts you have to create?   1
+
+Enter Document number:12345678900
+
+Account Information List:
+------------------------------------------------
+|Account_ID     | Document_no 
+|    1          |  12345678900
+------------------------------------------------
+
+How many operations you have to create? 4
+
+Enter operation Description:Purchase
+
+Enter operation Description:Purchase with installments
+
+Enter operation Description:Withdrawl
+
+Enter operation Description:Credit Voucher 
+
+Operations Information List:
+------------------------------------------------
+|OperationType   | Description 
+|    1           |  Purchase
+|    2           |  Purchase with installments
+|    3           |  Withdrawl
+|    4           |  Credit Voucher
+------------------------------------------------
+
+How many Transaction you have to perform?       4
+
+Select which Transaction you want to perform:   1
+
+Enter Amount for transaction:   50
+
+Select which Transaction you want to perform:   1
+
+Enter Amount for transaction:   23.5
+
+Select which Transaction you want to perform:   1
+
+Enter Amount for transaction:   18.7
+
+Select which Transaction you want to perform:   4
+
+Enter Amount for transaction:   60
+
+Transaction Information List:
+--------------------------------------------------------------------
+|Txn_id  | Acc_id| oper_type | Amount   | Event date 
+|  1     | 1     |  1        |  -50.00  | 19.09.21 13:26:59
+|  2     | 1     |  1        |  -23.50  | 19.09.21 13:26:59
+|  3     | 1     |  1        |  -18.70  | 19.09.21 13:26:59
+|  4     | 1     |  4        |  60.00  | 19.09.21 13:26:59
+--------------------------------------------------------------------
